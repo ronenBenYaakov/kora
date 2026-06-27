@@ -6,77 +6,92 @@ interface ValueProposition {
   description: string;
 }
 
-// תועלות ברורות למנהלי מפעלים, בתי מלאכה ובעלי מכונות
+// תועלות ברורות בשפה של רצפת הייצור
 const koraBenefits: ValueProposition[] = [
   {
-    title: "קיצור דרמטי בזמני מחזור (Cycle Time)",
-    description: "אנחנו מייעלים את פקודות ההרצה והקוד של המכונות שלכם. התוצאה: המכונה זזה חכם ומהר יותר, מייצרת יותר חלקים בכל משמרת, ומגדילה את תפוקת המפעל באופן מיידי."
+    title: "לחתוך את ה-Cycle Time בלי לרחם",
+    description: "אנחנו מנקים ומייעלים את פקודות הריצה וה-G-Code שלכם. התוצאה: המכונה זזה חכם יותר, מורידה שניות קריטיות מכל חלק, ומוציאה הרבה יותר סחורה בכל משמרת."
   },
   {
-    title: "הגנה מפני שברים והשבתות פתאומיות",
-    description: "כיול נכון של עומסים ומהירויות מונע שחיקה מואצת של ספינדלים, שבירת כרסומים ונזק לצירים. אנחנו דואגים שהמכונות שלכם יעבדו חלק, ללא השבתות יקרות באמצע העבודה."
+    title: "שומרים על הספינדל ועל הכלים שלכם",
+    description: "כיול נכון של עומסים ומהירויות הזנה (Feed) מונע שברים פתאומיים של כרסומים ועוצר שחיקה מואצת של צירים יקרים. פחות השבתות מבאסות באמצע הלחץ – יותר עבודה רציפה."
   },
   {
-    title: "חיסכון בחשמל ובבלאי רכיבים יקרים",
-    description: "עבודה לא אופטימלית מאמצת את המנועים ומקצרת את חיי המכונה. האופטימיזציה שלנו מורידה את צריכת האנרגיה ומאריכה את החיים של חלקי החילוף היקרים ביותר שלכם."
+    title: "פחות בלאי, פחות חשמל",
+    description: "כשמכונה מתאמצת לחינם או 'רוקדת' על חומר הגלם, המנועים נשחקים וחשבון החשמל קופץ. האופטימיזציה שלנו גורמת למכונה לעבוד חלק, מה שמאריך משמעותית את החיים של חלקי החילוף."
   }
 ];
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <header class="kora-header container">
   <div class="brand">KORA<span>.</span></div>
-  <button class="contact-btn">שדרג את תפוקת המכונות שלי</button>
+  <button class="contact-btn">בוא נשדרג את המכונות שלי</button>
 </header>
 
 <main class="container">
   <section class="hero-section">
     <div class="hero-content">
-      <h1>המכונות שלכם. מייצרות יותר, נשחקות פחות, מרוויחות יותר.</h1>
-      <p>בעלי בתי מלאכה ומפעלים רבים סובלים מזמני ייצור ארוכים מדי, בלאי גבוה של כלי חיתוך, ועיכובים באספקת הזמנות ללקוחות. Kora מבצעת אופטימיזציה מקצועית למערכות ומכונות ה-CNC שלכם – כדי להפיק מהן מהירות מקסימלית, דיוק מוחלט ואפס תקלות מכניות.</p>
+      <h1>המכונות שלכם. קצב מהיר יותר, אפס תקלות, מקסימום תפוקה.</h1>
+      <p>בעלי בתי מלאכה ומפעלים מכירים את הסיוט: זמני עיבוד ארוכים מדי, כרסומים שנשברים ברגע הכי לא נכון, ועיכובים במסירות ללקוחות. Kora עושה אופטימיזציה אמיתית למערכות ומכונות ה-CNC שלכם – כדי להוציא מהן את המקסימום בלי לקרוע את החומרה.</p>
       
       <div class="roi-box">
         <div class="roi-row">
-          <span class="roi-label">קיצור ממוצע בזמני ייצור ומחזור חלק:</span>
-          <span class="roi-value positive">חיסכון של 25% - 40% בזמן</span>
+          <span class="roi-label">קיצור זמן עיבוד ממוצע לחלק:</span>
+          <span class="roi-value positive">חוסכים 25% - 40% מהזמן</span>
         </div>
         <div class="roi-row">
-          <span class="roi-label">הפחתה בבלאי כלים וחלקי חילוף:</span>
-          <span class="roi-value positive">הארכת חיי הכלי פי 2</span>
+          <span class="roi-label">הארכת חיי כלי החיתוך:</span>
+          <span class="roi-value positive">הכלי מחזיק מעמד פי 2 יותר</span>
         </div>
       </div>
     </div>
     
-    <!-- Simple, wide comparison table targeting physical machinery operations -->
-    <div class="comparison-card">
-      <h3>מה ההבדל ברצפת הייצור שלך?</h3>
+    <!-- דשבורד הדמיה דינמי -->
+    <div class="comparison-card dynamic-dashboard">
+      <div class="dashboard-header-text">סימולציית מהירות ועומס בזמן אמת</div>
       
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>המכונות שלך כיום</th>
-            <th class="highlight-header">המכונות שלך אחרי Kora</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="bad">🔴 תנועות לא יעילות, קצב ייצור איטי</td>
-            <td class="good">🟢 תנועה אופטימלית, זמני מחזור קצרים</td>
-          </tr>
-          <tr>
-            <td class="bad">🔴 בלאי מואץ, שבירת כרסומים וספינדלים</td>
-            <td class="good">🟢 עבודה חלקה ושמירה על חומר הגלם והכלי</td>
-          </tr>
-          <tr>
-            <td class="bad">🔴 צווארי בקבוק בהזמנות בגלל קצב איטי</td>
-            <td class="good">🟢 אספקה מהירה יותר ויכולת לקחת עוד עבודות</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- סטטוס 1: המצב הרגיל מהמפעל -->
+      <div class="sim-row">
+        <div class="sim-info">
+          <span class="sim-title">לפני אופטימיזציה (סטנדרט)</span>
+          <span class="sim-status bad-pulse">פידים לא יציבים / עומס חריג על הציר</span>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar unoptimized-bar"></div>
+        </div>
+        <div class="sim-meta">
+          <span>זמן ריצה: <b>12:40 דקות</b></span>
+          <span class="negative-text">ניצול חומרה: 55%</span>
+        </div>
+      </div>
+
+      <!-- סטטוס 2: אחרי הטיפול של קורה -->
+      <div class="sim-row active-sim">
+        <div class="sim-info">
+          <span class="sim-title">אחרי הכיול של Kora</span>
+          <span class="sim-status good-pulse">תנועה רציפה וחלקה (Constant Feed)</span>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar optimized-bar"></div>
+        </div>
+        <div class="sim-meta">
+          <span>זמן ריצה: <b class="positive-text">7:15 דקות</b></span>
+          <span class="positive-text">יעילות שיא: 98%</span>
+        </div>
+      </div>
+
+      <div class="dashboard-divider"></div>
+
+      <!-- נקודות מפתח בתכל'ס -->
+      <ul class="dynamic-bullets-list">
+        <li><span>קצב עבודה:</span> <strong class="good-text">תנועה מהירה פי 1.8</strong>, בלי רעידות ובלי 'קפיצות' של הצירים.</li>
+        <li><span>שמירה על הציוד:</span> <strong class="good-text">אפס זעזועים מכניים</strong>, הראש והספינדל עובדים שקט וקריר.</li>
+      </ul>
     </div>
   </section>
 
   <section class="capabilities-section">
-    <h2>איך אנחנו מגדילים את הרווחיות של רצפת הייצור?</h2>
+    <h2>איך אנחנו מרימים את הרווחיות ברצפת הייצור?</h2>
     <div class="grid" id="benefits-grid"></div>
   </section>
 </main>

@@ -6,6 +6,7 @@
   --text-muted: #64748b;
   --accent-blue: #38bdf8;
   --accent-green: #10b981;
+  --accent-red: #ef4444;
   --border-color: #1e293b;
 }
 
@@ -79,7 +80,7 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .comparison-card {
+  .dynamic-dashboard {
     margin: 0 auto;
   }
 }
@@ -134,8 +135,8 @@ body {
   color: var(--accent-green);
 }
 
-/* Simple Comparison Card Box */
-.comparison-card {
+/* Modern Dynamic Dashboard Panel */
+.dynamic-dashboard {
   background: #0f172a;
   border: 1px solid var(--border-color);
   border-radius: 16px;
@@ -145,46 +146,127 @@ body {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.comparison-card h3 {
-  margin: 0 0 1.5rem 0;
-  font-size: 1.4rem;
-  color: #ffffff;
-}
-
-.comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: right;
-}
-
-.comparison-table th, .comparison-table td {
-  padding: 1.2rem 1rem;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 0.95rem;
-}
-
-.comparison-table th {
-  color: var(--text-muted);
-  font-weight: 600;
+.dashboard-header-text {
   font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
 }
 
-.comparison-table th.highlight-header {
-  color: var(--accent-blue);
+.sim-row {
+  background: var(--bg-dark);
+  border: 1px solid rgba(255,255,255,0.02);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
-.comparison-table tr:last-child td {
-  border-bottom: none;
+.sim-row.active-sim {
+  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.02);
 }
 
-.bad {
-  color: #cbd5e1;
+.sim-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
 }
 
-.good {
-  color: #ffffff;
+.sim-title {
+  font-size: 0.95rem;
   font-weight: 600;
+}
+
+.sim-status {
+  font-size: 0.8rem;
+}
+
+.bad-pulse { color: #f87171; }
+.good-pulse { color: var(--accent-green); }
+
+/* Animated Progress Bars simulating machining operations */
+.progress-container {
+  background: #1e293b;
+  border-radius: 6px;
+  height: 8px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 6px;
+}
+
+/* Loop timing shows Kora finishing almost twice as fast */
+.unoptimized-bar {
+  background: #475569;
+  width: 100%;
+  animation: machineRunSlow 6s infinite linear;
+}
+
+.optimized-bar {
+  background: linear-gradient(to left, var(--accent-green), #34d399);
+  width: 100%;
+  animation: machineRunFast 3.4s infinite linear;
+}
+
+@keyframes machineRunSlow {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes machineRunFast {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.sim-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.negative-text { color: var(--accent-red); }
+.positive-text { color: var(--accent-green); font-weight: 700; }
+
+.dashboard-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 1.75rem 0;
+}
+
+/* Clean Explanatory Points */
+.dynamic-bullets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dynamic-bullets-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: #94a3b8;
+  position: relative;
+  padding-right: 1.25rem;
+}
+
+.dynamic-bullets-list li::before {
+  content: "⚡";
+  position: absolute;
+  right: 0;
+  top: 1px;
+  font-size: 0.9rem;
+}
+
+.good-text {
+  color: #ffffff;
 }
 
 /* Capabilities Section */
